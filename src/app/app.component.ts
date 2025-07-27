@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { WorklogSummaryCardComponent } from './components/worklog-summary-card/worklog-summary-card.component';
 import { WorkLogSummary } from './interfaces/worklog-summary.interface';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

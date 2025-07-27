@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Component-specific styles using @apply */
+@layer components {
+  .worklog-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-all duration-200 hover:shadow-md;
+  }
+
+  .role-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .role-badge-admin {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+  }
+
+  .role-badge-manager {
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+  }
+
+  .role-badge-employee {
+    @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300;
+  }
+
+  .view-details-btn {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .view-details-btn-admin {
+    @apply text-blue-700 bg-blue-100 hover:bg-blue-200 focus:ring-blue-500 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800;
+  }
+
+  .view-details-btn-manager {
+    @apply text-green-700 bg-green-100 hover:bg-green-200 focus:ring-green-500 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800;
+  }
+
+  .view-details-btn-employee {
+    @apply text-gray-700 bg-gray-100 hover:bg-gray-200 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600;
+  }
+
+  .avatar-fallback {
+    @apply w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-lg;
+  }
+
+  .avatar-fallback-admin {
+    @apply bg-blue-600 dark:bg-blue-500;
+  }
+
+  .avatar-fallback-manager {
+    @apply bg-green-600 dark:bg-green-500;
+  }
+
+  .avatar-fallback-employee {
+    @apply bg-gray-600 dark:bg-gray-500;
+  }
+}
+
+/* Dark mode toggle styles */
+.dark-mode-toggle {
+  @apply fixed top-4 right-4 p-2 rounded-lg bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 cursor-pointer transition-all duration-200 hover:shadow-lg z-10;
+}

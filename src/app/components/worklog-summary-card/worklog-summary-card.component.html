@@ -1,0 +1,114 @@
+<article class="worklog-card" [attr.aria-label]="'Work log summary for ' + data.user.name">
+  <!-- Header Section with User Info -->
+  <header class="flex items-start justify-between mb-4">
+    <div class="flex items-center space-x-3">
+      <!-- Avatar with Fallback -->
+      <div class="relative flex-shrink-0">
+        <img 
+          *ngIf="data.user.avatarUrl" 
+          [src]="data.user.avatarUrl"
+          [alt]="data.user.name + ' avatar'"
+          class="w-12 h-12 rounded-full object-cover"
+          (error)="onAvatarError($event)"
+        />
+        <div 
+          *ngIf="!data.user.avatarUrl"
+          class="avatar-fallback"
+          [ngClass]="{
+            'avatar-fallback-admin': data.user.role === 'admin',
+            'avatar-fallback-manager': data.user.role === 'manager',
+            'avatar-fallback-employee': data.user.role === 'employee'
+          }"
+          [attr.aria-label]="'Avatar for ' + data.user.name"
+        >
+          {{ getUserInitials(data.user.name) }}
+        </div>
+      </div>
+
+      <!-- User Name and Role -->
+      <div class="min-w-0 flex-1">
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-white truncate">
+          {{ data.user.name }}
+        </h2>
+        <span 
+          class="role-badge"
+          [ngClass]="{
+            'role-badge-admin': data.user.role === 'admin',
+            'role-badge-manager': data.user.role === 'manager',
+            'role-badge-employee': data.user.role === 'employee'
+          }"
+          [attr.aria-label]="'Role: ' + data.user.role"
+        >
+          {{ data.user.role | titlecase }}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Work Summary Content -->
+  <div class="space-y-4">
+    <!-- Week Information -->
+    <div class="flex items-center justify-between">
+      <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
+        Period
+      </span>
+      <span class="text-sm text-gray-900 dark:text-gray-100 font-medium">
+        {{ formatWeek(data.week) }}
+      </span>
+    </div>
+
+    <!-- Hours Worked -->
+    <div class="flex items-center justify-between">
+      <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
+        Total Hours
+      </span>
+      <span class="text-lg font-bold text-gray-900 dark:text-gray-100">
+        {{ formatHours(data.totalHours) }}h
+      </span>
+    </div>
+
+    <!-- Project Name -->
+    <div class="pt-2 border-t border-gray-200 dark:border-gray-700">
+      <span class="text-sm font-medium text-gray-500 dark:text-gray-400 block mb-1">
+        Project
+      </span>
+      <span class="text-sm text-gray-900 dark:text-gray-100 font-medium block">
+        {{ data.projectName }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Action Section -->
+  <footer class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+    <button 
+      *ngIf="data.canViewDetails"
+      type="button"
+      class="view-details-btn w-full"
+      [ngClass]="{
+        'view-details-btn-admin': data.user.role === 'admin',
+        'view-details-btn-manager': data.user.role === 'manager',
+        'view-details-btn-employee': data.user.role === 'employee'
+      }"
+      (click)="onViewDetails()"
+      [attr.aria-label]="'View detailed work log for ' + data.user.name"
+    >
+      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+      </svg>
+      View Details
+    </button>
+
+    <!-- Access Restricted Message -->
+    <div 
+      *ngIf="!data.canViewDetails"
+      class="text-center py-2"
+      role="status"
+      aria-label="Details access restricted"
+    >
+      <span class="text-sm text-gray-500 dark:text-gray-400 italic">
+        Details access restricted
+      </span>
+    </div>
+  </footer>
+</article>

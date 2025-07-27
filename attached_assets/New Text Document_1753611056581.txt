@@ -1,0 +1,126 @@
+Recruitment Assignment – Angular + Tailwind CSS
+A short, realistic task to verify how you think, code, and work.
+
+
+🧭 Context
+You’ll implement a component similar to what we use in our ERP system. It must be clean, modular, responsive, and built using Angular + Tailwind CSS only (no UI libraries). We want to observe your process, not just the final result.
+
+
+🔹 STEP 1: Planning (before coding)
+Please provide a short plan in Markdown or plain text with:
+• A breakdown of the task into clear steps (e.g. structure, inputs, styling, responsiveness, role handling),
+• Time estimation for each step (rough guesses are fine),
+• A short note about your styling strategy (Tailwind approach, @apply, ngClass, responsive layout, dark mode, etc.),
+• Anything you intend to optimize or simplify.
+
+
+You can commit this as PLAN.md or include it in your first commit.
+
+
+⚠️ Do not start coding until this plan is committed.
+
+
+🔹 STEP 2: Component Implementation
+✨ Component: <worklog-summary-card>
+
+
+export interface WorkLogSummary {
+user: {
+name: string;
+avatarUrl?: string;
+role: 'admin' | 'manager' | 'employee';
+};
+week: string; e.g. "2025-W28"
+totalHours: number;
+projectName: string;
+canViewDetails: boolean;
+}
+
+
+Requirements:
+• Use Angular 16+ (Standalone Components allowed).
+• Style everything with Tailwind CSS only – no UI libraries.
+• Make it fully responsive (mobile + desktop).
+• Show “View Details” button only if canViewDetails === true – with hover/focus styles.
+• Handle missing avatarUrl gracefully.
+• Use role-based styling (e.g. admin highlighted differently).
+• Use semantic, accessible HTML.
+
+
+🔁 Commit Process (important!)
+Please commit regularly, at each meaningful step:
+• Each step from your plan should result in one or more commits.
+• Use clear commit messages (e.g. “Add layout skeleton”, “Style role badge”).
+• Avoid catch-all commits like “fixes” or “final”.
+
+
+We want to observe your progress – not just the result.
+
+
+🌓 Bonus (optional)
+• Add support for dark mode using Tailwind dark: variants.
+• Use @apply to simplify repetitive utility classes.
+• Use ngClass for role-conditional or responsive styling.
+• Add a preview wrapper (e.g. 2–3 dummy cards).
+
+
+🧪 What we evaluate
+Tailwind usage & styling clarity – ★★★★☆
+Responsive layout – ★★★★☆
+Angular structure & inputs – ★★★☆☆
+Use of nested data & conditionals – ★★★☆☆
+Planning + commit transparency – ★★★★☆
+
+
+📤 Submission
+• Please share a GitHub repo (strongly preferred) or .zip if needed.
+• Include:
+- your initial PLAN (PLAN.md or first commit),
+- your commit history,
+- a short README.md with:
+• how to run (npm install && ng serve),
+• any notes, decisions or assumptions.
+
+
+Let me know if you have any questions before starting. We’re looking forward to your plan and progress!
+
+It is not part of our actual project and has no commercial value.
+We just want to evaluate your ability to plan, build, and style a UI component using Angular and Tailwind CSS.
+The plan is part of this test – you’re not updating our codebase in any way.
+
+
+If we move forward together, then we’ll invite you into the real project and define actual features.
+
+
+Let me know when your plan is ready or if anything is unclear.
+
+If you prefer, you’re very welcome to submit the assignment in stages – for example: basic layout → styling → logic, etc.
+That way we can review and give feedback along the way, not just at the end.
+
+Please imagine you’re working on a modular ERP system for managing projects, teams, and work logs.
+The component you’re building (<worklog-summary-card>) would be part of a dashboard used by managers and employees to track time and tasks.
+
+
+It’s meant to be:
+• visually clean (Tailwind CSS, utility-first), responsive (desktop + mobile), logic-aware (user roles, data conditions), designed without any Hi Valeria,
+Great question – here’s the project context for the assignment:
+
+
+Please imagine you’re working on a modular ERP system for managing projects, teams, and work logs.
+The component you’re building (<worklog-summary-card>) would be part of a dashboard used by managers and employees to track time and tasks.
+
+
+It’s meant to be visually clean (Tailwind CSS, utility-first), responsive (desktop + mobile), logic-aware (user roles, data conditions), designed without any external UI libraries.
+
+
+There’s no need to match any real company branding – use a neutral style with good UX. UI libraries.
+
+
+There’s no need to match any real company branding – use a neutral style with good UX.
+
+This assignment is also meant to check your UI thinking and creative approach – not just execution.
+That’s why we didn’t provide a visual mockup: we’d like to see how you design the layout yourself based on the given data and roles.
+
+
+No need for visual fireworks – just a clean, readable, responsive component using Angular + Tailwind.
+What matters is structure, logic, and clarity – not graphic polish.
